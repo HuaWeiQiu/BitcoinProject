@@ -9,7 +9,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="$PROJECT_DIR$/../../../GO" />
+  <component name="GOROOT" path="D:/GO网上课堂/golong" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -24,10 +24,56 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="BitcoinProject" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="BitcoinProject" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="434" y="71" key="#GOROOT" timestamp="1609071815257">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="434" y="71" key="#GOROOT/0.0.1536.832@0.0.1536.832" timestamp="1609071815257" />
+    <state x="297" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609071845972">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="297" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.832@0.0.1536.832" timestamp="1609071845972" />
+    <state x="577" y="189" key="FileChooserDialogImpl" timestamp="1609071878163">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="577" y="189" key="FileChooserDialogImpl/0.0.1536.832@0.0.1536.832" timestamp="1609071878163" />
+    <state width="1333" height="171" key="GridCell.Tab.0.bottom" timestamp="1609072035563">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1333" height="171" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1609072035563" />
+    <state width="1333" height="171" key="GridCell.Tab.0.center" timestamp="1609072035563">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1333" height="171" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1609072035563" />
+    <state width="1333" height="171" key="GridCell.Tab.0.left" timestamp="1609072035563">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1333" height="171" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1609072035563" />
+    <state width="1333" height="171" key="GridCell.Tab.0.right" timestamp="1609072035563">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1333" height="171" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1609072035563" />
   </component>
 </project>

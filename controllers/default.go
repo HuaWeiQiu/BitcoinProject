@@ -7,9 +7,9 @@ import (
 type MainController struct {
 	beego.Controller
 }
-
+/*
+ *默认显示注册页面
+ */
 func (c *MainController) Get() {
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
-	c.TplName = "index.tpl"
+	c.TplName = "register.html"
 }
