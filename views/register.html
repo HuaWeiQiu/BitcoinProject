@@ -80,7 +80,7 @@
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-lock"></i>
                                 </span>
-                                    <input type="password" class="form-control" name="password" placeholder="密码"
+                                    <input id="password" type="password" class="form-control" name="password" placeholder="密码"
                                            autocomplete="off" data-bv-field="password">
                                 </div>
                                 <i class="form-control-feedback" data-bv-icon-for="password"
@@ -139,7 +139,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 ">
-                                <button type="submit" class="btn btn-primary btn-block"  onclick="validate();" id="Button1">
+                                <button type="submit" class="btn btn-primary btn-block"  onclick="validate();">
                                     同意协议并注册
                                 </button>
                             </div>
@@ -257,7 +257,16 @@
         }
 
     }
-
+    function submit() {
+        var email= document.getElementById("email");
+        var password =document.getElementById("password");
+        if (email!=""&&password!=""){
+            document.getElementById("registerForm").submit();
+        }else{
+            alert("信息填写错误，请重试");
+            window.location="register.html";
+        }
+    }
     function validate() {
         var inputCode = document.getElementById("input1").value;
         if (inputCode.length <= 0) {
@@ -267,6 +276,7 @@
             createCode();//刷新验证码
         } else {
             alert("^-^ OK");
+            submit();
         }
     }
 </script>

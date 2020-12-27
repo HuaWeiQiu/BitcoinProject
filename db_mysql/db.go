@@ -21,6 +21,6 @@ func ConnectDB()  {
 	if err != nil {
 	panic("数据库连接错误!!!")
 	}
-	fmt.Println("数据库连接")
+	fmt.Println("数据库连接成功")
 	Db = db
 }
