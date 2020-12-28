@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
-	"testbitcoin/entity"
+	//"testbitcoin/entity"
+	"BitcoinProject/entity"
 )
 
 /*
@@ -15,7 +16,7 @@ func GetBestBlockHash() string {
 	jsonbody := strings.NewReader(jsons)
 	rpcResult := DoPost(RPCURL, ReqHeader(), jsonbody)
 	var results entity.Result
-	err:=json.Unmarshal(rpcResult,&results)
+	err := json.Unmarshal(rpcResult, &results)
 	if err != nil {
 		fmt.Println(err.Error())
 		return ""
@@ -79,17 +80,45 @@ func GetBalances() (*entity.Balance, error) {
 	if err != nil {
 		return &entity.Balance{}, err
 	}
-	return &balance,nil
+	return &balance, nil
 }
 func GetDifficulty() float64 {
-	jsons := PrepareJSON("getdifficulty",nil)
+	jsons := PrepareJSON("getdifficulty", nil)
 	jsonbody := strings.NewReader(jsons)
 	rpcResult := DoPost(RPCURL, ReqHeader(), jsonbody)
 	var results entity.Result
-	err :=json.Unmarshal(rpcResult,&results)
+	err := json.Unmarshal(rpcResult, &results)
 	if err != nil {
 		fmt.Println(err.Error())
 		return -1
 	}
 	return results.Result.(float64)
+}
+func Getchaintips() *entity.Getchaintips {
+	jsons := PrepareJSON("getchaintips", nil)
+	jsonbody := strings.NewReader(jsons)
+	rpcResult := DoPost(RPCUSER, ReqHeader(), jsonbody)
+	var results entity.Getchaintips
+	fmt.Println(results)
+	err := json.Unmarshal(rpcResult, &results)
+	if err != nil {
+		fmt.Println(err.Error())
+		return nil
+	}
+	return &results
+}
+
+func Getblockhash(height int) string {
+	jsons := PrepareJSON("getblockhash", []interface{}{height})
+	jsonbody := strings.NewReader(jsons)
+	rpcResult := DoPost(RPCUSER, ReqHeader(), jsonbody)
+	var results entity.Result
+	err := json.Unmarshal(rpcResult, &results)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+
+	return results.Result.(string)
+
 }
