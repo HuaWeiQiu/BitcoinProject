@@ -11,5 +11,5 @@ type MainController struct {
  *默认显示注册页面
  */
 func (c *MainController) Get() {
-	c.TplName = "register.html"
+	c.TplName = "text.html"
 }
