@@ -5,7 +5,7 @@ import (
 	"github.com/mapstructure"
 	"net/http"
 	"strings"
-	"test/entity"
+	"BitcoinProject/entity"
 )
 
 /*
@@ -108,7 +108,6 @@ func GetDifficult() float64 {
 	if err != nil {
 		return -1
 	}
-
 	if result.Code == http.StatusOK {
 		return result.Data.Result.(float64)
 	}
@@ -181,4 +180,68 @@ func GitBlockCount() float64  {
 	}
 	return -1
 }
-
+/*
+ *获取指定区块头
+ */
+func GetBlockHeader(hash string) ( *entity.Blockheader,error) {
+	jsons := PrepareJSON("getblockheader",[]interface{}{hash})
+	jsonbody := strings.NewReader(jsons)
+	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
+	if err != nil {
+		return nil,nil
+	}
+	if result.Code == http.StatusOK {
+		resultStr:=result.Data.Result
+		var blockheader entity.Blockheader
+		err:=mapstructure.WeakDecode(resultStr,&blockheader)
+		if err != nil {
+			return nil,nil
+		}
+		return &blockheader,nil
+	}
+	return nil,nil
+}
+/*
+ *getmempoolinfo
+ */
+func GetMemPoolInfo() (*entity.Mempoolinfo,error) {
+	jsons := PrepareJSON("getmempoolinfo",nil)
+	jsonbody := strings.NewReader(jsons)
+	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
+	if err != nil {
+		return nil,nil
+	}
+	if result.Code == http.StatusOK {
+		resultStr:=result.Data.Result
+		var mempoolinfo entity.Mempoolinfo
+		err:=mapstructure.WeakDecode(resultStr,&mempoolinfo)
+		if err != nil {
+			fmt.Println(err.Error())
+			return nil,nil
+		}
+		return &mempoolinfo,nil
+	}
+	return nil,nil
+}
+/*
+ *
+ */
+func GetTxoutSetInfo() (*entity.Txoutsetinfo,error)  {
+	jsons := PrepareJSON("gettxoutsetinfo",nil)
+	jsonbody := strings.NewReader(jsons)
+	result,err := DoPost(RPCURL,ReqHeader(),jsonbody)
+	if err != nil {
+		return nil,nil
+	}
+	if result.Code ==http.StatusOK {
+		resultStr :=result.Data.Result
+		var txoutsetinfo entity.Txoutsetinfo
+		err := mapstructure.WeakDecode(resultStr,&txoutsetinfo)
+		if err != nil {
+			fmt.Println(err.Error())
+			return nil,nil
+		}
+		return &txoutsetinfo,nil
+	}
+	return nil,nil
+}
