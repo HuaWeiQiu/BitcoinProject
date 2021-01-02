@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" th:href="@{css/passwd.css}"/>
+    <link rel="stylesheet" th:href="@{css/user.css}"/>
+</head>
+<body>
+<div class="common-container">
+    <header class="common-header clearfix">
+        <span class="user-title common-title" th:text="#{userManager}">用户管理</span>
+    </header>
+    <main>
+        <header class="common-table-title" th:text="#{updatePasswd}">修改密码</header>
+        <div class="modifyPwd-container">
+            <form class="modifyPwd-form">
+                <fieldset>
+                    <div class="modifyPwd-item model-select-item resetPwd">
+                        <label th:inline="text"><em class="red">*</em>[[#{oldPasswd}]]</label>
+                        <input id="oldPassword" th:placeholder="#{user.modify.oldPasswd}" type="password"
+                               class="resetPwd-form-input input-field  modifyPwd-form-input"/>
+                    </div>
+                    <div class="modifyPwd-item  model-select-item resetPwd">
+                        <label th:inline="text"><em class="red">*</em>[[#{newPasswd}]]</label>
+                        <input id="newPassword" th:placeholder="#{user.modify.newPasswd}" type="password"
+                               class="resetPwd-form-input input-field modifyPwd-form-input"/>
+                        <b th:text="#{passwordRole}">
+                        </b>
+                    </div>
+                    <div class="modifyPwd-item model-select-item resetPwd">
+                        <label th:inline="text"><em class="red">*</em>[[#{secondNewPasswd}]]</label>
+                        <input id="repeatPassword" th:placeholder="#{user.modify.secondNewPasswd}" type="password"
+                               class="resetPwd-form-input input-field modifyPwd-form-input"/>
+                        <b th:text="#{passwordRole}">
+                        </b>
+                    </div>
+                </fieldset>
+                <div class="modifyPass-btn">
+                    <input type="button" th:value="#{submit}" onclick="modifyPwdSumbit()" class="modifyPwd-save-btn"/>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="./static/js/text"></script>
+    <script>
+        $(".resetPwd-form-input").blur(function () {
+            $(this).removeClass("error-tip")
+        })
+    </script>
+</div>
+</body>
+</html>
+
+
