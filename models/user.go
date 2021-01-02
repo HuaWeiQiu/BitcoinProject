@@ -10,6 +10,7 @@ type User struct {
 	Email    string `form:"email"`
 	Password string `form:"password"`
 }
+
 /*
 保存用户信息的方法：保存用户信息到数据库中
 */
@@ -17,7 +18,7 @@ func (u User) SaveUser() (int64, error) {
 	//1.密码脱敏处理
 	u.Password = utils.Md5Hash(u.Password)
 	//2.执行数据库操作
-	row, err := db_mysql.Db.Exec("insert into user (email,password) values(?,?)",u.Email,u.Password)
+	row, err := db_mysql.Db.Exec("insert into user (email,password) values(?,?)", u.Email, u.Password)
 	if err != nil {
 		return -1, err
 	}
@@ -27,7 +28,6 @@ func (u User) SaveUser() (int64, error) {
 	}
 	return id, err
 }
-
 /*
 查询数据
 */
@@ -41,7 +41,8 @@ func (u User) QueryUser() (*User, error) {
 	}
 	return &u, err
 }
-func (u User)QueryByEmail(email string)(*User, error){
+//通过邮箱查询用户信息
+func (u User) QueryByEmail(email string) (*User, error) {
 	u.Password = utils.Md5Hash(u.Password)
 	row := db_mysql.Db.QueryRow("select email from user where email = ?", email)
 	err := row.Scan(&u.Email)
@@ -50,3 +51,5 @@ func (u User)QueryByEmail(email string)(*User, error){
 	}
 	return &u, err
 }
+
+

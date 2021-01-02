@@ -3,8 +3,7 @@ package main
 import (
 	"BitcoinProject/db_mysql"
 	_ "BitcoinProject/routers"
-	"BitcoinProject/utils"
-	"fmt"
+	"github.com/astaxie/beego"
 )
 
 func main() {

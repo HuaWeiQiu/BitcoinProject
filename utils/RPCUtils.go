@@ -55,7 +55,6 @@ func DoPost(url string, header map[string]string, body io.Reader) (*entity.RPCRe
 		if err != nil {
 			fmt.Println(err.Error())
 		}
-		//fmt.Println(string(respbyte))
 		var result entity.Result
 		//反序列化
 		err = json.Unmarshal(respbyte, &result)

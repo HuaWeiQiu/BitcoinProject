@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strings"
 	"BitcoinProject/entity"
+
 )
 
 /*
@@ -50,68 +51,25 @@ func GetBlockHash(height int) (string, error) {
  *根据比特币地址获取地址对应的信息
  */
 func GetBalances() (*entity.Balance, error) {
-	jsons := PrepareJSON("getbalances",nil)
-	jsonbody := strings.NewReader(jsons)
+	jsons := PrepareJSON("getbalances", nil)
+	jsonbody:=strings.NewReader(jsons)
 	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
 	if err != nil {
-		return nil, nil
+		fmt.Println(err.Error())
+		return nil,nil
 	}
-	//results :=result.Data.Result.([]byte)
-	//fmt.Println(results)
 	if result.Code == http.StatusOK {
 		fmt.Println(result.Code)
 		resultStr := result.Data.Result
-		//[]byte(resultStr)
 		var balance entity.Balance
 		err:=mapstructure.WeakDecode(resultStr,&balance)
-		////fmt.Println(result)
-		//str := fmt.Sprintf("%v", resultStr)
-		//fmt.Println("000000",str)
-		//
-		//str1 :=strings.ReplaceAll(str,"map[","{")
-		//str1 =strings.ReplaceAll(str1,"]","}")
-		//fmt.Println(str1)
-		//
-		////fmt.Println(resultStr)
-		////fmt.Println(resultStr)
-		////Strbuffer := resultStr.([]byte)
-		////var resultBytes = resultStr.([]byte)
-		//Bytes,err := GetBytes(str1)
-		//if err != nil {
-		//	fmt.Println(err.Error())
-		//}
-		////str := hex.EncodeToString(Bytes)
-		////fmt.Println(str)
-		//fmt.Println(Bytes)
-		//
-		//Bytes = bytes.TrimPrefix(Bytes,[]byte("<"))
-		//Bytes = bytes.TrimPrefix(Bytes,[]byte("\f"))
-		//var balance  entity.Balance
-		//err = json.Unmarshal(Bytes, &balance)
-		//if err != nil {
-		//	return &entity.Balance{}, err
-		//}
-		//result.Data.Result = balance
-		//return &entity.Balance{}, nil
+		if err != nil {
+			fmt.Println(err.Error())
+			return nil,err
+		}
 		return &balance,err
 	}
-	return nil, nil
-	//return nil,nil
-}
-/*
- *获取区块的难度
- */
-func GetDifficult() float64 {
-	jsons := PrepareJSON("getdifficulty",nil)
-	jsonbody := strings.NewReader(jsons)
-	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
-	if err != nil {
-		return -1
-	}
-	if result.Code == http.StatusOK {
-		return result.Data.Result.(float64)
-	}
-	return -1
+	return nil,err
 }
 /*
  *获取全部链头区块
@@ -132,11 +90,46 @@ func GetChaintips() ([]*entity.Chaintips,error) {
 			fmt.Println(err.Error())
 			return nil,nil
 		}
-		//fmt.Println(chaintips[0])
 		return chaintips,nil
 	}
 	return nil,nil
 }
+/*
+ *获取区块的难度
+ */
+func GetDifficult() float64 {
+	jsons := PrepareJSON("getdifficulty",nil)
+	jsonbody := strings.NewReader(jsons)
+	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
+	if err != nil {
+		return -1
+	}
+	if result.Code == http.StatusOK {
+		return result.Data.Result.(float64)
+	}
+	return -1
+}
+
+/*
+ *获取比特币内存信息
+ *@author  xcp
+ */
+func GetMemoryInfo() (*entity.MemoryInfo, error) {
+	jsons := PrepareJSON("getmemoryinfo", nil)
+	jsonbody := strings.NewReader(jsons)
+	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
+	if err != nil {
+		return nil, nil
+	}
+	if result.Code == http.StatusOK {
+		resultStr := result.Data.Result
+		var memoryinfo entity.MemoryInfo
+		err:=mapstructure.WeakDecode(resultStr,&memoryinfo)
+		return &memoryinfo,err
+	}
+	return nil, nil
+}
+
 /*
  *获取区块链当前状态信息
  *@author yexin
@@ -148,8 +141,6 @@ func GetBlockChainInfo() (*entity.Blockchaininfo,error) {
 	if err != nil {
 		return nil,nil
 	}
-	//fmt.Println(result.Code)
-	//fmt.Println(result.Data.Result)
 	if result.Code == http.StatusOK {
 		resultStr:=result.Data.Result
 		var blockchaininfo entity.Blockchaininfo
@@ -158,7 +149,6 @@ func GetBlockChainInfo() (*entity.Blockchaininfo,error) {
 			fmt.Println(err.Error())
 			return nil,nil
 		}
-		//fmt.Println(blockchaininfo)
 		return &blockchaininfo,nil
 	}
 	return nil,nil
@@ -177,6 +167,64 @@ func GitBlockCount() float64  {
 	}
 	if result.Code == http.StatusOK {
 		return result.Data.Result.(float64)
+	}
+	return -1
+}
+
+/*
+ *获取比特币远程调用(rpc)信息
+ *@author  xcp
+ */
+func GetRpcInfo() (*entity.RPCInfo, error) {
+	jsons := PrepareJSON("getrpcinfo", nil)
+	jsonbody := strings.NewReader(jsons)
+	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
+	if err != nil {
+		return nil, nil
+	}
+	if result.Code == http.StatusOK {
+		resultStr := result.Data.Result
+		var rpcinfo entity.RPCInfo
+		err:=mapstructure.WeakDecode(resultStr,&rpcinfo)
+		return &rpcinfo,err
+	}
+	return nil,nil
+}
+
+/*
+ *获取日志记录
+ *@author  xcp
+ */
+func Logging() (*entity.LOGGing, error) {
+	jsons := PrepareJSON("logging", nil)
+	jsonbody := strings.NewReader(jsons)
+	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
+	if err != nil {
+		return nil, nil
+	}
+	if result.Code == http.StatusOK {
+		resultStr := result.Data.Result
+		var logging entity.LOGGing
+		err:=mapstructure.WeakDecode(resultStr,&logging)
+		return &logging,err
+	}
+	return nil,nil
+}
+
+/*
+ *获取正常运行时间
+ *@author  xcp
+ */
+func Uptime() int {
+	jsons := PrepareJSON("uptime",nil)
+	jsonbody:=strings.NewReader(jsons)
+	result,err:=DoPost(RPCURL,ReqHeader(),jsonbody)
+	if err != nil {
+		fmt.Println(err.Error())
+		return -1
+	}
+	if result.Code == http.StatusOK {
+		return result.Data.Result.(int)
 	}
 	return -1
 }
@@ -245,3 +293,4 @@ func GetTxoutSetInfo() (*entity.Txoutsetinfo,error)  {
 	}
 	return nil,nil
 }
+
