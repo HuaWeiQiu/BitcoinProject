@@ -29,7 +29,7 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="http://www.hubwiz.com/login">
+                    <a href="/login.html">
                         <i class="fa fa-sign-in"></i>
                         登录
                     </a>
@@ -257,14 +257,14 @@
         }
 
     }
-    function submit() {
+    function submit(event) {
         var email= document.getElementById("email").value;
         var password =document.getElementById("password").value;
         if (email!=""&&password!=""){
             document.getElementById("registerForm").submit();
         }else{
             alert("信息填写错误，请重试");
-            window.location="register.html";
+            event.preventDefault();
         }
     }
     function validate() {

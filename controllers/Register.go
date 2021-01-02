@@ -25,7 +25,7 @@ func (r *Register) Post() () {
 	}
 
 	//判断该邮箱是否注册过
-	_,err=user.QueryEmail()
+	_,err=user.QueryByEmail(user.Email)
 	if err == nil{
 		r.Ctx.WriteString("用户已存在")
 		return

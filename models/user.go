@@ -35,14 +35,15 @@ func (u User) QueryUser() (*User, error) {
 	//1、密码脱敏
 	u.Password = utils.Md5Hash(u.Password)
 	row := db_mysql.Db.QueryRow("select email from user where email = ? and password = ?", u.Email, u.Password)
-	err := row.Scan(&u.Email,&u.Password)
+	err := row.Scan(&u.Email)
 	if err != nil {
 		return nil, err
 	}
 	return &u, err
 }
-func (u User)QueryEmail()(*User, error){
-	row := db_mysql.Db.QueryRow("select email from user where email = ?", u.Email)
+func (u User)QueryByEmail(email string)(*User, error){
+	u.Password = utils.Md5Hash(u.Password)
+	row := db_mysql.Db.QueryRow("select email from user where email = ?", email)
 	err := row.Scan(&u.Email)
 	if err != nil {
 		return nil, err
