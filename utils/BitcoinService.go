@@ -224,7 +224,7 @@ func GetMemPoolInfo() (*entity.Mempoolinfo,error) {
 	return nil,nil
 }
 /*
- *
+ *GetTxOutSetInfo/获取交易输出集信息
  */
 func GetTxoutSetInfo() (*entity.Txoutsetinfo,error)  {
 	jsons := PrepareJSON("gettxoutsetinfo",nil)

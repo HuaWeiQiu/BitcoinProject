@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c03e71a6-dab5-4fed-8aa6-31b18882e72c" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/entity/Blockheader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity/Mempoolinfo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity/Txoutsetinfo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/card.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/redir.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/card.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/2D.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/text2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/Balance.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/Balance.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/Mine.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/default.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/BitcoinService.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/BitcoinService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/RPCUtils.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/RPCUtils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/font-awesome.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Go File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -45,11 +46,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2Dlive_widget" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoProjects\src\BitcoinProject\static\js" />
+      <recent name="D:\GoProjects\src\BitcoinProject\static\css" />
       <recent name="D:\GoProjects\src\BitcoinProject\views" />
       <recent name="D:\GoProjects\src\BitcoinProject" />
     </key>
@@ -82,25 +85,40 @@
       <screen x="0" y="0" width="1536" height="832" />
     </state>
     <state x="297" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.832@0.0.1536.832" timestamp="1609071845972" />
+    <state x="607" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609567687262">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="607" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.832@0.0.1536.832" timestamp="1609567687262" />
     <state x="577" y="189" key="FileChooserDialogImpl" timestamp="1609312872655">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
     <state x="577" y="189" key="FileChooserDialogImpl/0.0.1536.832@0.0.1536.832" timestamp="1609312872655" />
-    <state width="1337" height="120" key="GridCell.Tab.0.bottom" timestamp="1609313539872">
+    <state width="1537" height="122" key="GridCell.Tab.0.bottom" timestamp="1609583914433">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1337" height="120" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1609313539872" />
-    <state width="1337" height="120" key="GridCell.Tab.0.center" timestamp="1609313539871">
+    <state width="1537" height="122" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1609583914432" />
+    <state width="1537" height="122" key="GridCell.Tab.0.center" timestamp="1609583914432">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1337" height="120" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1609313539871" />
-    <state width="1337" height="120" key="GridCell.Tab.0.left" timestamp="1609313539871">
+    <state width="1537" height="122" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1609583914432" />
+    <state width="1537" height="122" key="GridCell.Tab.0.left" timestamp="1609583914432">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1337" height="120" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1609313539871" />
-    <state width="1337" height="120" key="GridCell.Tab.0.right" timestamp="1609313539871">
+    <state width="1537" height="122" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1609583914432" />
+    <state width="1537" height="122" key="GridCell.Tab.0.right" timestamp="1609583914432">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1337" height="120" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1609313539871" />
+    <state width="1537" height="122" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1609583914432" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/home.html</url>
+          <line>787</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/9/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="比特币 RPC API">
+    <meta name="description" content="比特币命令及RPC API官方文档中文版">
+
+    <title>比特币RPC API命令核心客户端</title>
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/card.min.css">
+
+    <style>
+        article h1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .wrapper {
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .kp-index, .kp-sidebar {
+                display: none;
+            }
+        }
+        .input-style{
+          border: #b3d7ff none;
+            border-radius: 50%;
+        }
+    </style>
+    <meta http-equiv="origin-trial"
+          content="A1H+PzQW00tt6dlReHFzfO4EtBaEtEImIF9ZNiF54JpDi1bO6/7PK96Q0qxy017wgzSy9ByDKoju2mo57DH+MwoAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTAzOTg0NTIsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta http-equiv="origin-trial"
+          content="A1H+PzQW00tt6dlReHFzfO4EtBaEtEImIF9ZNiF54JpDi1bO6/7PK96Q0qxy017wgzSy9ByDKoju2mo57DH+MwoAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTAzOTg0NTIsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta http-equiv="origin-trial"
+          content="A1H+PzQW00tt6dlReHFzfO4EtBaEtEImIF9ZNiF54JpDi1bO6/7PK96Q0qxy017wgzSy9ByDKoju2mo57DH+MwoAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTAzOTg0NTIsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <link rel="preload" href="./比特币RPC API命令中文手册 _ GetMemPoolAncestors - 汇智网_files/f(4).txt" as="script">
+    <script src="./比特币RPC API命令中文手册 _ GetMemPoolAncestors - 汇智网_files/osd.js.下载"></script>
+    <script type="text/javascript" src="./比特币RPC API命令中文手册 _ GetMemPoolAncestors - 汇智网_files/f(4).txt"></script>
+</head>
+<body>
+<header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav id="hb-nav" class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right profile">
+                <li><a href="http://www.hubwiz.com/login"><i class="fa fa-sign-in"></i> 登录 </a></li>
+                <li><a href="http://www.hubwiz.com/register"><i class="fa fa-pencil"></i> 注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="wrapper">
+    <div class="kp-index">
+        <h3>
+           比特币RPC API命令核心客户端
+        </h3>
+        <div class="list-group">
+
+            <div class="list-group-item"><b>区块链API</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/1/" class="list-group-item "
+               title="GetBestBlockHash/获取链头区块哈希">
+                GetBestBlockHash/获取链头区块哈希
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/2/" class="list-group-item "
+               title="GetBlock/获取指定哈希的区块">
+                GetBlock/获取指定哈希的区块
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/3/" class="list-group-item "
+               title="GetBlockChainInfo/获取区块链当前状态">
+                GetBlockChainInfo/获取区块链当前状态
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/4/" class="list-group-item "
+               title="GetBlockCount/获取区块数量">
+                GetBlockCount/获取区块数量
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/5/" class="list-group-item "
+               title="GetBlockHash/获取指定高度区块的哈希">
+                GetBlockHash/获取指定高度区块的哈希
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/6/" class="list-group-item "
+               title="GetBlockHeader/获取指定哈希区块头">
+                GetBlockHeader/获取指定哈希区块头
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/7/" class="list-group-item "
+               title="GetChainTips/获取全部链头区块">
+                GetChainTips/获取全部链头区块
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/8/" class="list-group-item "
+               title="GetDifficulty/获取出块难度">
+                GetDifficulty/获取出块难度
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/9/" class="list-group-item active"
+               title="GetMemPoolAncestors">
+                GetMemPoolAncestors
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/10/" class="list-group-item "
+               title="GetMemPoolDescendants">
+                GetMemPoolDescendants
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/11/" class="list-group-item "
+               title="GetMemPoolEntry">
+                GetMemPoolEntry
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/12/" class="list-group-item "
+               title="GetMemPoolInfo/获取交易池信息">
+                GetMemPoolInfo/获取交易池信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/13/" class="list-group-item "
+               title="GetRawMemPool/获取交易池详情">
+                GetRawMemPool/获取交易池详情
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/14/" class="list-group-item "
+               title="GetTxOut/获取交易输出信息">
+                GetTxOut/获取交易输出信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/15/" class="list-group-item "
+               title="GetTxOutProof/获取交易在区块中的证据">
+                GetTxOutProof/获取交易在区块中的证据
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/16/" class="list-group-item "
+               title="GetTxOutSetInfo/获取交易输出集信息">
+                GetTxOutSetInfo/获取交易输出集信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/17/" class="list-group-item "
+               title="PreciousBlock">
+                PreciousBlock
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/18/" class="list-group-item "
+               title="PruneBlockChain">
+                PruneBlockChain
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/19/" class="list-group-item "
+               title="VerifyChain/校验本地区块">
+                VerifyChain/校验本地区块
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/20/" class="list-group-item "
+               title="VerifyTxOutProof">
+                VerifyTxOutProof
+            </a>
+
+
+            <div class="list-group-item"><b>节点控制API</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/2/1/" class="list-group-item "
+               title="GetRpcInfo/获取rpc服务器信息">
+                GetRpcInfo/获取rpc服务器信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/2/2/" class="list-group-item " title="Help">
+                Help
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/2/3/" class="list-group-item "
+               title="Stop/关闭节点软件">
+                Stop/关闭节点软件
+            </a>
+
+
+            <div class="list-group-item"><b>区块构造与挖矿API</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/1/" class="list-group-item "
+               title="Generate/挖矿出块">
+                Generate/挖矿出块
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/2/" class="list-group-item "
+               title="GenerateToAddress/挖矿出块并奖励指定地址">
+                GenerateToAddress/挖矿出块并奖励指定地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/3/" class="list-group-item "
+               title="GetBlockTemplate">
+                GetBlockTemplate
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/4/" class="list-group-item "
+               title="GetMiningInfo/获取挖矿信息">
+                GetMiningInfo/获取挖矿信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/5/" class="list-group-item "
+               title="GetNetworkHashPS/获取全网哈希生成速率">
+                GetNetworkHashPS/获取全网哈希生成速率
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/6/" class="list-group-item "
+               title="PrioritiseTransaction">
+                PrioritiseTransaction
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/3/7/" class="list-group-item "
+               title="SubmitBlock/提交区块">
+                SubmitBlock/提交区块
+            </a>
+
+
+            <div class="list-group-item"><b>P2P网络通信API</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/1/" class="list-group-item " title="AddNode">
+                AddNode
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/2/" class="list-group-item "
+               title="ClearBanned">
+                ClearBanned
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/3/" class="list-group-item "
+               title="DisconnectNode">
+                DisconnectNode
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/4/" class="list-group-item "
+               title="GetAddedNodeInfo">
+                GetAddedNodeInfo
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/5/" class="list-group-item "
+               title="GetConnectionCount">
+                GetConnectionCount
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/6/" class="list-group-item "
+               title="GetNetTotals">
+                GetNetTotals
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/7/" class="list-group-item "
+               title="GetNetworkInfo">
+                GetNetworkInfo
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/8/" class="list-group-item "
+               title="GetPeerInfo">
+                GetPeerInfo
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/9/" class="list-group-item "
+               title="ListBanned">
+                ListBanned
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/10/" class="list-group-item " title="Ping">
+                Ping
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/11/" class="list-group-item " title="SetBan">
+                SetBan
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/4/12/" class="list-group-item "
+               title="SetNetworkActive">
+                SetNetworkActive
+            </a>
+
+
+            <div class="list-group-item"><b>裸交易相关API</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/1/" class="list-group-item "
+               title="CreateRawTransaction/创建裸交易">
+                CreateRawTransaction/创建裸交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/2/" class="list-group-item "
+               title="FundRawTransaction/充值裸交易">
+                FundRawTransaction/充值裸交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/3/" class="list-group-item "
+               title="DecodeRawTransaction/解码裸交易">
+                DecodeRawTransaction/解码裸交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/4/" class="list-group-item "
+               title="DecodeScript/解码脚本">
+                DecodeScript/解码脚本
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/5/" class="list-group-item "
+               title="GetRawTransaction/获取指定裸交易">
+                GetRawTransaction/获取指定裸交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/6/" class="list-group-item "
+               title="SendRawTransaction/广播裸交易">
+                SendRawTransaction/广播裸交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/5/7/" class="list-group-item "
+               title="SignRawTransaction/签名裸交易">
+                SignRawTransaction/签名裸交易
+            </a>
+
+
+            <div class="list-group-item"><b>工具类</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/6/1/" class="list-group-item "
+               title="CreateMultiSig/创建多签地址与脚本">
+                CreateMultiSig/创建多签地址与脚本
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/6/2/" class="list-group-item "
+               title="EstimateFee">
+                EstimateFee
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/6/3/" class="list-group-item "
+               title="EstimatePriority">
+                EstimatePriority
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/6/4/" class="list-group-item "
+               title="GetMemoryInfo/获取内存利用信息">
+                GetMemoryInfo/获取内存利用信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/6/5/" class="list-group-item "
+               title="ValidateAddress/验证地址有效性">
+                ValidateAddress/验证地址有效性
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/6/6/" class="list-group-item "
+               title="VerifyMessage/验证消息签名">
+                VerifyMessage/验证消息签名
+            </a>
+
+
+            <div class="list-group-item"><b>钱包相关</b></div>
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/1/" class="list-group-item "
+               title="AbandonTransaction/废弃交易">
+                AbandonTransaction/废弃交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/2/" class="list-group-item "
+               title="AddWitnessAddress/添加隔离见证地址">
+                AddWitnessAddress/添加隔离见证地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/3/" class="list-group-item "
+               title="AddMultiSigAddress/添加多签地址">
+                AddMultiSigAddress/添加多签地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/4/" class="list-group-item "
+               title="BackupWallet/备份钱包文件">
+                BackupWallet/备份钱包文件
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/5/" class="list-group-item "
+               title="BumpFee/提高交易手续费">
+                BumpFee/提高交易手续费
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/6/" class="list-group-item "
+               title="DumpPrivKey/导出指定私钥">
+                DumpPrivKey/导出指定私钥
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/7/" class="list-group-item "
+               title="DumpWallet/导出钱包文件">
+                DumpWallet/导出钱包文件
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/8/" class="list-group-item "
+               title="EncryptWallet/加密钱包">
+                EncryptWallet/加密钱包
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/9/" class="list-group-item "
+               title="GetAccountAddress/获取指定账户当前地址">
+                GetAccountAddress/获取指定账户当前地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/10/" class="list-group-item "
+               title="GetAccount/获取指定地址所述账户">
+                GetAccount/获取指定地址所述账户
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/11/" class="list-group-item "
+               title="GetAddressesByAccount">
+                GetAddressesByAccount
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/12/" class="list-group-item "
+               title="GetBalance/查询钱包余额">
+                GetBalance/查询钱包余额
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/13/" class="list-group-item "
+               title="GetNewAddress/生成新地址">
+                GetNewAddress/生成新地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/14/" class="list-group-item "
+               title="GetRawChangeAddress/生成新找零地址">
+                GetRawChangeAddress/生成新找零地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/15/" class="list-group-item "
+               title="GetReceivedByAccount">
+                GetReceivedByAccount
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/16/" class="list-group-item "
+               title="GetReceivedByAddress/查询指定地址收币数量">
+                GetReceivedByAddress/查询指定地址收币数量
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/17/" class="list-group-item "
+               title="GetTransaction/查询指定交易">
+                GetTransaction/查询指定交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/18/" class="list-group-item "
+               title="GetUnconfirmedBalance/查询钱包未确认余额">
+                GetUnconfirmedBalance/查询钱包未确认余额
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/19/" class="list-group-item "
+               title="GetWalletInfo/获取钱包信息">
+                GetWalletInfo/获取钱包信息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/20/" class="list-group-item "
+               title="ImportAddress/导入地址">
+                ImportAddress/导入地址
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/21/" class="list-group-item "
+               title="ImportMulti">
+                ImportMulti
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/22/" class="list-group-item "
+               title="ImportPrunedFunds">
+                ImportPrunedFunds
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/23/" class="list-group-item "
+               title="ImportPrivKey/导入私钥">
+                ImportPrivKey/导入私钥
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/24/" class="list-group-item "
+               title="ImportWallet/导入钱包转储文件">
+                ImportWallet/导入钱包转储文件
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/25/" class="list-group-item "
+               title="KeyPoolRefill/预填充密钥池">
+                KeyPoolRefill/预填充密钥池
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/26/" class="list-group-item "
+               title="ListAccounts">
+                ListAccounts
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/27/" class="list-group-item "
+               title="ListAddressGroupings/按地址分组查询余额">
+                ListAddressGroupings/按地址分组查询余额
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/28/" class="list-group-item "
+               title="ListLockUnspent/获取锁定状态UTXO">
+                ListLockUnspent/获取锁定状态UTXO
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/29/" class="list-group-item "
+               title="ListReceivedByAccount">
+                ListReceivedByAccount
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/30/" class="list-group-item "
+               title="ListReceivedByAddress/按地址统计收币数量">
+                ListReceivedByAddress/按地址统计收币数量
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/31/" class="list-group-item "
+               title="ListSinceBlock/查询指定区块后发生的钱包交易">
+                ListSinceBlock/查询指定区块后发生的钱包交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/32/" class="list-group-item "
+               title="ListTransactions/查询最近发生的钱包交易">
+                ListTransactions/查询最近发生的钱包交易
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/33/" class="list-group-item "
+               title="ListUnspent/查询钱包UTXO">
+                ListUnspent/查询钱包UTXO
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/34/" class="list-group-item "
+               title="LockUnspent/锁定或解锁指定的UTXO">
+                LockUnspent/锁定或解锁指定的UTXO
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/35/" class="list-group-item " title="Move">
+                Move
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/36/" class="list-group-item "
+               title="RemovePrunedFunds">
+                RemovePrunedFunds
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/37/" class="list-group-item "
+               title="SendFrom">
+                SendFrom
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/38/" class="list-group-item "
+               title="SendMany">
+                SendMany
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/39/" class="list-group-item "
+               title="SendToAddress/向指定地址发送比特币">
+                SendToAddress/向指定地址发送比特币
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/40/" class="list-group-item "
+               title="SetAccount">
+                SetAccount
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/41/" class="list-group-item "
+               title="SetTxFee/设置交易手续费率">
+                SetTxFee/设置交易手续费率
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/42/" class="list-group-item "
+               title="SignMessage/签名消息">
+                SignMessage/签名消息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/43/" class="list-group-item "
+               title="SignMessageWithPrivKey/用指定私钥签名消息">
+                SignMessageWithPrivKey/用指定私钥签名消息
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/44/" class="list-group-item "
+               title="WalletLock/锁定钱包">
+                WalletLock/锁定钱包
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/45/" class="list-group-item "
+               title="WalletPassphrase/解锁钱包">
+                WalletPassphrase/解锁钱包
+            </a>
+
+
+            <a href="http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/7/46/" class="list-group-item "
+               title="WalletPassphraseChange/修改钱包密码">
+                WalletPassphraseChange/修改钱包密码
+            </a>
+
+
+        </div>
+
+
+    </div>
+    <div class="kp-card" style="height: auto !important;">
+        <!--div class="title"></div-->
+        <div class="kp-content" style="height: auto !important;">
+            <div class="content-wrapper" style="height: auto !important;">
+                <div class="content-path">
+                    <ol class="breadcrumb">
+                        <li></li>
+
+                    </ol>
+                </div>
+
+                <div class="cta" style="display:block;">
+
+                </div>
+
+                <article class="content">
+                    <p>内容整理中，请稍后回来。</p>
+
+
+                </article>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="kp-sidebar" style="height: auto !important;">
+        <div class="block">
+            <div class="heading"></div>
+            <div class="body" style="text-align: center">
+                <ul>
+                    <li><input id="params1" placeholder="params1.."></li>
+                    <li><input id="params2" placeholder="params2.."></li>
+                    <li>命令</li>
+                    <li><input value="getblockcount" type="submit" id="method" style="background-color: #8fd19e;" class="input-style"></li>
+                    <li><input id="params1" placeholder="params1.."></li>
+                    <li><input id="params2" placeholder="params2.."></li>
+                    <li>命令</li>
+                    <li><input value="GetBlockHash" type="submit" id="method" style="background-color: #8fd19e;" class="input-style"></li>
+                    <li><input id="params1" placeholder="params1.."></li>
+                    <li><input id="params2" placeholder="params2.."></li>
+                    <li>命令</li>
+                    <li><input value="GetBlockHeader" type="submit" id="method" style="background-color: #8fd19e;" class="input-style"></li>
+
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../static/css/card.min.js.下载"></script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?f1ba5b4a33d29d84db69f029b9ace483";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script src="../static/js/autoload.js"></script>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;">
+    <ins id="aswift_3_expand"
+         style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"
+         tabindex="0" title="Advertisement" aria-label="Advertisement">
+        <ins id="aswift_3_anchor"
+             style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;">
+            <iframe id="aswift_3" name="aswift_3"
+                    style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;"
+                    sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                    frameborder="0" src="./比特币RPC API命令中文手册 _ GetMemPoolAncestors - 汇智网_files/ads(3).html"
+                    marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"
+                    allowfullscreen="true" data-google-container-id="a!3" data-load-complete="true"></iframe>
+        </ins>
+    </ins>
+</ins>
+<iframe id="google_osd_static_frame_751062056540" name="google_osd_static_frame"
+        style="display: none; width: 0px; height: 0px;"
+        src="./比特币RPC API命令中文手册 _ GetMemPoolAncestors - 汇智网_files/saved_resource(3).html"></iframe>
+</body>
+<iframe id="google_esf" name="google_esf" src="./比特币RPC API命令中文手册 _ GetMemPoolAncestors - 汇智网_files/zrt_lookup.html"
+        data-ad-client="ca-pub-3968227190566015" style="display: none;"></iframe>
+</html>

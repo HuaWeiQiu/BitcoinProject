@@ -2,8 +2,6 @@ package main
 
 import (
 	_ "BitcoinProject/routers"
-	"BitcoinProject/utils"
-	"fmt"
 )
 
 func main() {
@@ -23,9 +21,9 @@ func main() {
 	//	fmt.Println(err.Error())
 	//}
 	//fmt.Printf("%.8f",MemPoolInfo.Bytes)
-	TxoutSetInfo,err := utils.GetTxoutSetInfo()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	fmt.Println(TxoutSetInfo.Height)
+	//TxoutSetInfo,err := utils.GetTxoutSetInfo()
+	//if err != nil {
+	//	fmt.Println(err.Error())
+	//}
+	//fmt.Println(TxoutSetInfo.Height)
 }
