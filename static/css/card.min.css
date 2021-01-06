@@ -39,7 +39,7 @@ abbr[title] {
 }
 
 b, strong {
-    font-weight: 700
+    font-weight: 100
 }
 
 dfn {
@@ -5547,9 +5547,8 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 .list-group-item {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 10px;
     margin-bottom: -1px;
-    background-color: #fff;
     border: 1px solid #ddd
 }
 
@@ -9405,7 +9404,7 @@ body {
 .kp-index {
     width: 300px;
     padding: 0 10px;
-    background: #fff;
+
     z-index: 1000;
     transition: all .5s
 }
@@ -9608,7 +9607,7 @@ body {
 
     .kp-card {
         left: 0;
-        right: 0
+        right: 0;
     }
 
     #index-toggle {
