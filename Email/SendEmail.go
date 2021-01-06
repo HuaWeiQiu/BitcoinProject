@@ -16,10 +16,10 @@ func SendMail(mailTo []string, subject string, body string) error {
 	//}
 
 	mailConn := map[string]string{
-		//QQ邮箱:1987752122@qq.com
-		"user": "1987752122@qq.com",
-		//QQ授权码：aqgadahhtuadefed
-		"pass": "aqgadahhtuadefed",
+		//QQ邮箱:
+		"user": "*************",
+		//QQ授权码：
+		"pass": "*************",
 		"host": "smtp.qq.com",
 		"port": "587",
 	}

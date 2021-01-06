@@ -58,9 +58,6 @@ func (s *SendCode) Post() {
 	//定义收件人
 	mailTo := []string{
 		codes.Email,
-		//"aaa2398546675@163.com",
-		//"qhw1987752122@163.com",
-		//"930987934@qq.com",
 	}
 	//发送邮件
 	err = Email.SendMail(mailTo, subject, body)
