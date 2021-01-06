@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c03e71a6-dab5-4fed-8aa6-31b18882e72c" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/entity/LOGGing.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity/MemoryInfo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity/RPCInfo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/BitcoinService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/InterfaceTobytes.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/RPCUtils.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/ReqHeader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/base64Str.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/contants.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/Nettotals.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/Nodeaddresses.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/BitcoinService.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/BitcoinService.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
