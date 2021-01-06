@@ -10,7 +10,7 @@ import (
 )
 
 /*
-获取最新区块的hash
+1、获取最新区块的hash
 */
 func GetBestBlockHash() string {
 	jsons := PrepareJSON("getbestblockhash", nil)
@@ -26,7 +26,7 @@ func GetBestBlockHash() string {
 }
 
 /*
-根据特定高度获取对应区块hash
+2、根据特定高度获取对应区块hash
 */
 func GetBlockHash(height int) (string, error) {
 	jsons := PrepareJSON("getblockhash", []interface{}{height})
@@ -48,7 +48,7 @@ func GetBlockHash(height int) (string, error) {
 }
 
 /*
- *根据比特币地址获取地址对应的信息
+ *3、根据比特币地址获取地址对应的信息
  */
 func GetBalances() (*entity.Balance, error) {
 	jsons := PrepareJSON("getbalances", nil)
@@ -61,18 +61,18 @@ func GetBalances() (*entity.Balance, error) {
 	if result.Code == http.StatusOK {
 		fmt.Println(result.Code)
 		resultStr := result.Data.Result
-		var balance entity.Balance
+		var balance *entity.Balance
 		err:=mapstructure.WeakDecode(resultStr,&balance)
 		if err != nil {
 			fmt.Println(err.Error())
 			return nil,err
 		}
-		return &balance,err
+		return balance,err
 	}
 	return nil,err
 }
 /*
- *获取全部链头区块
+ *4、获取全部链头区块
  */
 func GetChaintips() ([]*entity.Chaintips,error) {
 	jsons := PrepareJSON("getchaintips",nil)
@@ -95,7 +95,7 @@ func GetChaintips() ([]*entity.Chaintips,error) {
 	return nil,nil
 }
 /*
- *获取区块的难度
+ *5、获取区块的难度
  */
 func GetDifficult() float64 {
 	jsons := PrepareJSON("getdifficulty",nil)
@@ -111,7 +111,7 @@ func GetDifficult() float64 {
 }
 
 /*
- *获取比特币内存信息
+ *6、获取比特币内存信息
  *@author  xcp
  */
 func GetMemoryInfo() (*entity.MemoryInfo, error) {
@@ -131,7 +131,7 @@ func GetMemoryInfo() (*entity.MemoryInfo, error) {
 }
 
 /*
- *获取区块链当前状态信息
+ *7、获取区块链当前状态信息
  *@author yexin
  */
 func GetBlockChainInfo() (*entity.Blockchaininfo,error) {
@@ -155,10 +155,10 @@ func GetBlockChainInfo() (*entity.Blockchaininfo,error) {
 }
 /*
  *获取区块数量
- *getblockcount调用返回本地最优链中的区块数量
+ *8、getblockcount调用返回本地最优链中的区块数量
  *@author yexin
  */
-func GitBlockCount() float64  {
+func GetBlockCount() float64  {
 	jsons := PrepareJSON("getblockcount",nil)
 	jsonbody := strings.NewReader(jsons)
 	result, err := DoPost(RPCURL, ReqHeader(), jsonbody)
@@ -172,7 +172,7 @@ func GitBlockCount() float64  {
 }
 
 /*
- *获取比特币远程调用(rpc)信息
+ *9、获取比特币远程调用(rpc)信息
  *@author  xcp
  */
 func GetRpcInfo() (*entity.RPCInfo, error) {
@@ -192,7 +192,7 @@ func GetRpcInfo() (*entity.RPCInfo, error) {
 }
 
 /*
- *获取日志记录
+ *10、获取日志记录
  *@author  xcp
  */
 func Logging() (*entity.LOGGing, error) {
@@ -212,10 +212,10 @@ func Logging() (*entity.LOGGing, error) {
 }
 
 /*
- *获取正常运行时间
+ *11、获取正常运行时间
  *@author  xcp
  */
-func Uptime() int {
+func Uptime() float64 {
 	jsons := PrepareJSON("uptime",nil)
 	jsonbody:=strings.NewReader(jsons)
 	result,err:=DoPost(RPCURL,ReqHeader(),jsonbody)
@@ -224,12 +224,12 @@ func Uptime() int {
 		return -1
 	}
 	if result.Code == http.StatusOK {
-		return result.Data.Result.(int)
+		return result.Data.Result.(float64)
 	}
 	return -1
 }
 /*
- *获取指定区块头
+ *12、获取指定区块头
  */
 func GetBlockHeader(hash string) ( *entity.Blockheader,error) {
 	jsons := PrepareJSON("getblockheader",[]interface{}{hash})
@@ -250,7 +250,7 @@ func GetBlockHeader(hash string) ( *entity.Blockheader,error) {
 	return nil,nil
 }
 /*
- *getmempoolinfo
+ *13、getmempoolinfo
  */
 func GetMemPoolInfo() (*entity.Mempoolinfo,error) {
 	jsons := PrepareJSON("getmempoolinfo",nil)
@@ -272,7 +272,7 @@ func GetMemPoolInfo() (*entity.Mempoolinfo,error) {
 	return nil,nil
 }
 /*
- *
+ *14、获取交易输出的信息
  */
 func GetTxoutSetInfo() (*entity.Txoutsetinfo,error)  {
 	jsons := PrepareJSON("gettxoutsetinfo",nil)
@@ -293,4 +293,42 @@ func GetTxoutSetInfo() (*entity.Txoutsetinfo,error)  {
 	}
 	return nil,nil
 }
-
+/*
+ *15、根据区块的hash获取区块的信息
+*/
+func GetBlock(hash string) (*entity.Block,error) {
+	json := PrepareJSON("getblock",[]interface{}{hash})
+	fmt.Println(json)
+	result,err := DoPost(RPCURL,ReqHeader(),strings.NewReader(json))
+	if err != nil {
+		return nil,nil
+	}
+	if result.Code==http.StatusOK{
+		resultStr := result.Data.Result
+		var block entity.Block
+		err= mapstructure.WeakDecode(resultStr,&block)
+		if err!=nil {
+			fmt.Println(err.Error())
+			return nil,err
+		}
+		return &block,nil
+	}
+	return nil,nil
+}
+/*
+**16、getnewaddress 生成一个新的比特币地址
+*/
+func GetNewAddress(label string,addresstype string)string{
+	//addresstype:=entity.AddressTypes(addtype)
+	json:=PrepareJSON("getnewaddress",[]interface{}{label,addresstype})
+	body:=strings.NewReader(json)
+	result,err:=DoPost(RPCURL,ReqHeader(),body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return ""
+	}
+	if result.Code==http.StatusOK {
+		return result.Data.Result.(string)
+	}
+	return ""
+}

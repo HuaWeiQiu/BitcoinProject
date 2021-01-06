@@ -6,9 +6,11 @@ import (
 )
 
 type User struct {
-	Id       int    `form:"id"`
-	Email    string `form:"email"`
-	Password string `form:"password"`
+	Id        int    `form:"id"`
+	Email     string `form:"email"`
+	Password  string `form:"password"`
+	TimeStamp int64  `form:"timestamp"`
+	Code      string `form:"code"`
 }
 
 /*
@@ -28,6 +30,7 @@ func (u User) SaveUser() (int64, error) {
 	}
 	return id, err
 }
+
 /*
 查询数据
 */
@@ -41,15 +44,57 @@ func (u User) QueryUser() (*User, error) {
 	}
 	return &u, err
 }
+
 //通过邮箱查询用户信息
 func (u User) QueryByEmail(email string) (*User, error) {
-	u.Password = utils.Md5Hash(u.Password)
+	//u.Password = utils.Md5Hash(u.Password)
 	row := db_mysql.Db.QueryRow("select email from user where email = ?", email)
-	err := row.Scan(&u.Email)
+	var user User
+	err := row.Scan(&user.Email)
 	if err != nil {
 		return nil, err
 	}
-	return &u, err
+	return &user, err
 }
-
-
+/*
+更新(插入)数据
+*/
+func (u User)Updata(email string)(int64,error)  {
+	rs, err := db_mysql.Db.Exec("update user set timestamp=? ,code=? where email=?",u.TimeStamp,u.Code,email)
+	if err != nil {
+		return -1, err
+	}
+	return rs.RowsAffected()
+}
+/*
+修改密码
+*/
+func (u User)UpPwd(email string)(int64,error)  {
+	u.Password = utils.Md5Hash(u.Password)
+	rs, err := db_mysql.Db.Exec("update user set password=? where email=?",u.Password,email)
+	if err != nil {
+		return -1, err
+	}
+	return rs.RowsAffected()
+}
+/*
+如果验证码超过时长就删除验证码
+*/
+func (u User)DelCode(email string)(int64,error)  {
+	rs, err := db_mysql.Db.Exec("update user set code=null where email=?",u.Code,email)
+	if err != nil {
+		return -1, err
+	}
+	return rs.RowsAffected()
+}
+//根据查询条件(email)进行数据查询
+func (u User) QueryByEmails(email string) (*User, error) {
+	//u.Password = utils.Md5Hash(u.Password)
+	row := db_mysql.Db.QueryRow("select email, timestamp ,code from user where email=?", email)
+	var user User
+	err := row.Scan(&user.Email,&user.TimeStamp,&user.Code)
+	if err != nil {
+		return nil, err
+	}
+	return &user, err
+}

@@ -1,0 +1,48 @@
+@charset "utf-8";
+*{
+    margin: 0 auto;
+    padding: 0;
+    font-family: 微软雅黑;
+    color: black;
+}
+body{
+    background: url("../img/BTC.jpg") no-repeat;
+    background-size: 100% 123%;
+}
+.code{
+    width: 120px;
+    border: solid 1px;
+}
+#Div_log{
+    background: #01011B;
+    height: 75px;
+    margin-bottom:100px;
+    text-align: center;
+    padding-top: 20px;
+}
+#Div{
+    width: 50%;
+    text-align: center;
+}
+h3{
+    margin: 20px 0 ;
+    padding-top:30px  ;
+}
+input{
+    line-height: 30px;
+    width: 220px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.submit_input{
+    width: 222px;
+    margin: 20px 0;
+    height: 30px;
+    background-color: dodgerblue;
+    margin-bottom:100px ;
+}
+.send_button{
+    line-height: 30px;
+    width: 94px;
+    color: black;
+}

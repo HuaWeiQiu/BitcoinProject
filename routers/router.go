@@ -15,4 +15,14 @@ func init() {
     beego.Router("/login",&controllers.Login{})
     //在注册页面已有账号直接跳转到登陆界面
     beego.Router("/login.html",&controllers.Login{})
+    //跳转到忘记密码页面
+	beego.Router("/updatapwd.html",&controllers.SendCode{})
+    //忘记密码发送验证码到邮箱
+	beego.Router("/sendcode",&controllers.SendCode{})
+    //修改密码
+	beego.Router("/uppwd",&controllers.UpPwd{})
+    //功能页面
+    beego.Router("/home.html",&controllers.HoemController{})
+    //执行方法
+    beego.Router("/home",&controllers.HoemController{})
 }

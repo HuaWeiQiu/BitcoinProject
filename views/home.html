@@ -1,10 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0055)http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/1/1/9/ -->
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="比特币 RPC API">
+    <meta name="description" content="比特币命令及RPC API官方文档中文版">
+
+    <title>比特币RPC API命令核心客户端</title>
+    <script src="../static/js/jquery-3.1.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function func() {
+            return false;
+        }
+
+        function delivery1() {
+            document.getElementById("method").value = document.getElementById("method1").value;
+        }
+
+        function delivery2() {
+            document.getElementById("method").value = document.getElementById("method2").value;
+        }
+
+        function delivery3() {
+            document.getElementById("method").value = document.getElementById("method3").value;
+        }
+
+        function delivery4() {
+            document.getElementById("method").value = document.getElementById("method4").value;
+        }
+
+        function delivery5() {
+            document.getElementById("method").value = document.getElementById("method5").value;
+        }
+
+        function delivery6() {
+            document.getElementById("method").value = document.getElementById("method6").value;
+        }
+
+        function delivery7() {
+            document.getElementById("method").value = document.getElementById("method7").value;
+        }
+
+        function delivery8() {
+            document.getElementById("method").value = document.getElementById("method8").value;
+        }
+
+        function delivery9() {
+            document.getElementById("method").value = document.getElementById("method9").value;
+        }
+
+        function delivery10() {
+            document.getElementById("method").value = document.getElementById("method10").value;
+        }
+
+        function delivery11() {
+            document.getElementById("method").value = document.getElementById("method11").value;
+        }
+
+        function delivery12() {
+            document.getElementById("method").value = document.getElementById("method12").value;
+        }
+
+        function delivery13() {
+            document.getElementById("method").value = document.getElementById("method13").value;
+        }
+        function delivery14() {
+            document.getElementById("method").value = document.getElementById("method14").value;
+        }
+        function delivery15() {
+            document.getElementById("method").value = document.getElementById("method15").value;
+        }
+        function delivery16() {
+            document.getElementById("method").value = document.getElementById("method16").value;
+        }
+        function check() {
+            var method = document.getElementById("method").value;
+            var params1 = document.getElementById("params1").value;
+            var params2 = document.getElementById("params2").value;
+            var command = {
+                "method": method,
+                "params1": params1,
+                "params2": params2
+            };
+            $.ajax({
+                url: "/home",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(command),
+                success: function (data) {
+                    object = JSON.parse(data);
+                    objects = JSON.stringify(object, null, "\t");
+                    //objects=object.replace(",","\n");
+                    document.getElementById("content").innerHTML = objects;
+                },
+                error: function (data) {
+                    alert("错误");
+                }
+            });
+        }
+    </script>
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/card.min.css">
+
+    <style>
+        article h1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .wrapper {
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .kp-index, .kp-sidebar {
+                display: none;
+            }
+        }
+
+        .submit_form {
+            text-align: center;
+        }
+
+        .input-style {
+            border: #b3d7ff none;
+            border-radius: 50%;
+        }
+
+        .input-style2 {
+            display: block;
+            margin-right: 20%;
+
+        }
+
+        .input-style3 {
+            width: 100px;
+            outline-style: none;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .input-style4 {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+        li{
+            margin: 10px 0;
+        }
+    </style>
+    <meta http-equiv="origin-trial"
+          content="A1H+PzQW00tt6dlReHFzfO4EtBaEtEImIF9ZNiF54JpDi1bO6/7PK96Q0qxy017wgzSy9ByDKoju2mo57DH+MwoAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTAzOTg0NTIsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta http-equiv="origin-trial"
+          content="A1H+PzQW00tt6dlReHFzfO4EtBaEtEImIF9ZNiF54JpDi1bO6/7PK96Q0qxy017wgzSy9ByDKoju2mo57DH+MwoAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTAzOTg0NTIsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta http-equiv="origin-trial"
+          content="A1H+PzQW00tt6dlReHFzfO4EtBaEtEImIF9ZNiF54JpDi1bO6/7PK96Q0qxy017wgzSy9ByDKoju2mo57DH+MwoAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTAzOTg0NTIsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+
 </head>
 <body>
-<p>欢迎来到核心功能页面</p>
+<header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav id="hb-nav" class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right profile">
+                <li><a href="http://www.hubwiz.com/login"><i class="fa fa-sign-in"></i> 登录 </a></li>
+                <li><a href="http://www.hubwiz.com/register"><i class="fa fa-pencil"></i> 注册</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="wrapper">
+    <div class="kp-index">
+        <h3>
+            比特币RPC API命令核心客户端
+        </h3>
+        <div class="list-group">
+
+            <div class="list-group-item"><b>区块链API</b></div>
+
+            <div class="list-group-item"><b>节点控制API</b></div>
+
+            <div class="list-group-item"><b>区块构造与挖矿API</b></div>
+
+            <div class="list-group-item"><b>P2P网络通信API</b></div>
+
+            <div class="list-group-item"><b>裸交易相关API</b></div>
+
+            <div class="list-group-item"><b>工具类</b></div>
+
+            <div class="list-group-item"><b>钱包相关</b></div>
+
+        </div>
+
+    </div>
+    <div class="kp-card" style="height: auto !important;">
+        <!--div class="title"></div-->
+        <div class="kp-content" style="height: auto !important;">
+            <div class="content-wrapper" style="height: auto !important;">
+                <div class="content-path">
+                    <ol class="breadcrumb">
+                        <li></li>
+
+                    </ol>
+                </div>
+                <div class="cta" style="display:block;">
+                </div>
+                <article class="content">
+                    <div style="height: 500px">
+                        <pre id="content" style="display: block"></pre>
+                    </div>
+                    <div class="input-style2">
+                        <form class="submit_form" action="" onsubmit="return func()">
+                            <input id="method" type="text" name="method" placeholder="method.." class="input-style4">
+                            <input id="params1" type="text" name="params1" placeholder="params1.." class="input-style4">
+                            <input id="params2" type="text" name="params2" placeholder="params2.." class="input-style4">
+                            <button type="submit" onclick="check()" class="input-style3">提交</button>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="kp-sidebar" style="height: auto !important;">
+        <div class="block">
+            <div class="heading"></div>
+            <div class="body" style="text-align: center">
+                <ul>
+                    <li>命令</li>
+                    <li><input value="getblockcount" type="button" id="method1" onclick="delivery1()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getbestblockhash" type="button" id="method2" onclick="delivery2()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getbalances" type="button" id="method3" onclick="delivery3()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getdifficulty" type="button" id="method4" onclick="delivery4()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getblock" type="button" id="method5" onclick="delivery5()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getchaintips" type="button" id="method6" onclick="delivery6()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getmemoryinfo" type="button" id="method7" onclick="delivery7()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getblockchaininfo" type="button" id="method8" onclick="delivery8()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getrpcinfo" type="button" id="method9" onclick="delivery9()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="logging" type="button" id="method10" onclick="delivery10()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="uptime" type="button" id="method11" onclick="delivery11()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getblockheader" type="button" id="method12" onclick="delivery12()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getmempoolinfo" type="button" id="method13" onclick="delivery13()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="gettxoutsetinfo" type="button" id="method14" onclick="delivery14()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getblockhash" type="button" id="method15" onclick="delivery15()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                    <li><input value="getnewaddress" type="button" id="method16" onclick="delivery16()"
+                               style="background-color: #8fd19e;"
+                               class="input-style"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../static/css/card.min.js.下载"></script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?f1ba5b4a33d29d84db69f029b9ace483";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script src="../static/js/autoload.js"></script>
 </body>
 </html>

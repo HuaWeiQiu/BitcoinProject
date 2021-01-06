@@ -1,0 +1,87 @@
+{{/*<!DOCTYPE html>*/}}
+{{/*<html lang="en">*/}}
+{{/*<head>*/}}
+{{/*    <meta charset="UTF-8">*/}}
+{{/*    <title>Title</title>*/}}
+{{/*    <script src="/static/js/jquery-3.1.1.js" type="text/javascript"></script>*/}}
+{{/*    <script type="text/javascript">*/}}
+{{/*        function func() {*/}}
+{{/*            return false;*/}}
+{{/*        }*/}}
+{{/*        function send() {*/}}
+{{/*            var codeinfo = document.getElementById("codeinfo").value;*/}}
+{{/*            var email = document.getElementById("email").value;*/}}
+{{/*            if (email==""){*/}}
+{{/*                document.getElementById("waring").innerHTML="<span style='color: red'>请填写邮箱地址</span>";*/}}
+{{/*                return false;*/}}
+{{/*            }*/}}
+{{/*            var sendcode ={*/}}
+{{/*              "codeinfo":codeinfo,*/}}
+{{/*              "email":email*/}}
+{{/*            };*/}}
+{{/*            $.ajax({*/}}
+{{/*                url:"/sendcode",*/}}
+{{/*                type:"POST",*/}}
+{{/*                data:JSON.stringify(sendcode),*/}}
+{{/*                dataType:"json",*/}}
+{{/*                contentType: "application/json; charset=utf-8",*/}}
+{{/*                success:function (data) {*/}}
+{{/*                   alert(data+"请查看您的邮箱");*/}}
+{{/*                }*/}}
+{{/*            })*/}}
+{{/*        }*/}}
+{{/*        function checkpassword() {*/}}
+{{/*            var password = document.getElementById("pwd").value;*/}}
+{{/*            var repassword = document.getElementById("repwd").value;*/}}
+{{/*            if (password == repassword) {*/}}
+{{/*                document.getElementById("warings").innerHTML = "<br><font color='green'>两次密码输入一致</font>";*/}}
+{{/*                document.getElementById("submit").disabled = false;*/}}
+
+{{/*            } else {*/}}
+{{/*                document.getElementById("warings").innerHTML = "<br><font color='red'>两次输入密码不一致!</font>";*/}}
+{{/*                document.getElementById("submit").disabled = true;*/}}
+{{/*            }*/}}
+{{/*        }*/}}
+{{/*        function check() {*/}}
+{{/*            var password = document.getElementById("pwd").value;*/}}
+{{/*            var repassword = document.getElementById("repwd").value;*/}}
+{{/*            var email = document.getElementById("email").value;*/}}
+{{/*            var code = document.getElementById("code").value;*/}}
+{{/*            if (password==""||repassword==""){*/}}
+{{/*                alert("请输入新密码或确认密码");*/}}
+{{/*                return false;*/}}
+{{/*            }*/}}
+{{/*            var pwd = {*/}}
+{{/*                "email":email,*/}}
+{{/*                "password":password,*/}}
+{{/*                "code":code*/}}
+{{/*            };*/}}
+{{/*            $.ajax({*/}}
+{{/*                url:"/uppwd",*/}}
+{{/*                type: "POST",*/}}
+{{/*                data: JSON.stringify(pwd),*/}}
+{{/*                dataType: "json",*/}}
+{{/*                contentType: "application/json; charset=utf-8",*/}}
+{{/*                success:function (data) {*/}}
+{{/*                    if (data=="修改密码成功"){*/}}
+{{/*                        alert("修改密码成功");*/}}
+{{/*                        window.location="login.html"*/}}
+{{/*                    }*/}}
+{{/*                }*/}}
+{{/*            })*/}}
+{{/*        }*/}}
+{{/*    </script>*/}}
+{{/*</head>*/}}
+{{/*<body>*/}}
+{{/*<form action="/" method="post" onsubmit="return func()">*/}}
+{{/*    <input type="text" name="email" placeholder="email" id="email"><br/>*/}}
+{{/*    <div id="waring"></div>*/}}
+{{/*    <input name="code" style="width: 75px" id="code" placeholder="验证码..">*/}}
+{{/*    <input type="button" onclick="send()" name="sendcode" id="codeinfo" value="获取验证码"><br/>*/}}
+{{/*    <input type="password" name="password" id="pwd" placeholder="新密码.."><br/>*/}}
+{{/*    <input type="password" id="repwd" onkeyup="checkpassword()" placeholder="确认密码.."><br/>*/}}
+{{/*    <div id="warings"></div>*/}}
+{{/*    <input type="submit" id="submit" onclick="check()" >*/}}
+{{/*</form>*/}}
+{{/*</body>*/}}
+{{/*</html>*/}}
